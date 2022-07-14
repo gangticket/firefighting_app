@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -132,7 +133,8 @@ public class CCTV extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cctv);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         // 웹뷰 시작
         mWebView = (WebView) findViewById(R.id.webView);
 

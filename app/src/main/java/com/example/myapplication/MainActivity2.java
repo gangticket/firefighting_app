@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -35,7 +36,8 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(1500); //1.5초간 진동
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         mTvBluetoothStatus = (TextView) findViewById(R.id.tvBluetoothStatus);
         mTvtemp = (TextView) findViewById(R.id.tvtemp);
         mTvgas = (TextView) findViewById(R.id.tvgas);

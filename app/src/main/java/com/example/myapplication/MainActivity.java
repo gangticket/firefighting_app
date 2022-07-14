@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton mBtnBluetoothOff;
     Button mBtnConnect;
     Button mBtncctv;
-    Button mbtn;
+//    Button mbtn;
     BluetoothAdapter mBluetoothAdapter;
     Set<BluetoothDevice> mPairedDevices;
     List<String> mListPairedDevices;
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         mTvBluetoothStatus = (TextView) findViewById(R.id.tvBluetoothStatus);
         mTvtemp = (TextView) findViewById(R.id.tvtemp);
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnConnect = (Button) findViewById(R.id.btnConnect);
         mBtncctv = (Button) findViewById(R.id.btnSendData);
 
-        mbtn = (Button) findViewById(R.id.btn);
+//        mbtn = (Button) findViewById(R.id.btn);
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -83,13 +86,13 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH}, 1);
 
 
-        mbtn.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                startActivity(intent);
-            }
-        });
+//        mbtn.setOnClickListener(new Button.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+//                startActivity(intent);
+//            }
+//        });
 
         mBtnBluetoothOn.setOnClickListener(new Button.OnClickListener() {
             @Override

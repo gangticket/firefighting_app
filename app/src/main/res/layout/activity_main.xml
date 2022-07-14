@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fontFamily="@font/gowun"
     tools:context=".MainActivity">
 
     <ImageButton
@@ -111,15 +112,15 @@
         android:text="CCTV연결"
         app:layout_constraintStart_toStartOf="@+id/tvtemp"
         app:layout_constraintTop_toBottomOf="@+id/btnConnect" />
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+<!--    <Button-->
+<!--        android:id="@+id/btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="84dp"-->
 
-        android:background ="#00000000"
-        android:text="C31"
-        app:layout_constraintStart_toStartOf="@+id/btnSendData"
-        app:layout_constraintTop_toBottomOf="@+id/btnSendData" />
+<!--        android:background ="#00000000"-->
+<!--        android:text="C31"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/btnSendData"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btnSendData" />-->
 
 </android.support.constraint.ConstraintLayout>
