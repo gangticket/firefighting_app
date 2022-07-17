@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -151,7 +152,7 @@ public class CCTV extends AppCompatActivity {
         mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 브라우저 캐시 허용 여부
         mWebSettings.setDomStorageEnabled(true); // 로컬저장소 허용 여부
 
-        mWebView.loadUrl("https://www.youtube.com/watch?v=1Tk8noRBCUc"); // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
+        mWebView.loadUrl("http://172.20.10.9:8081/?action=stream"); // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
 
         ImageButton btnF = findViewById(R.id.btn1);
         ImageButton btnB = findViewById(R.id.btn2);
@@ -159,57 +160,144 @@ public class CCTV extends AppCompatActivity {
         ImageButton btnR = findViewById(R.id.btn4);
         ImageButton btn5 = findViewById(R.id.btn5);
         ImageButton btn6 = findViewById(R.id.btn6);
-
+        ImageButton btn7 = findViewById(R.id.btn7);
+        ImageButton btn8 = findViewById(R.id.btn8);
         mTvBluetoothStatus = (TextView) findViewById(R.id.tvBluetoothStatus);
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         // Button Listeners
-        btnF.setOnClickListener(new View.OnClickListener() {
+        btnF.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                if (mThreadConnectedBluetooth != null) ;
-                mThreadConnectedBluetooth.write("w");
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        if (mThreadConnectedBluetooth != null) ;
+                        mThreadConnectedBluetooth.write("w");
+                        break;
+                    }
+                    case MotionEvent.ACTION_MOVE: {
+                        break;
+                    }
+
+                    case MotionEvent.ACTION_UP: {
+                        mThreadConnectedBluetooth.write("2");
+                        break;
+                    }
+                }
+                return false;
             }
         });
 
-        btnB.setOnClickListener(new View.OnClickListener() {
+        btnB.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                if (mThreadConnectedBluetooth != null) ;
-                mThreadConnectedBluetooth.write("s");
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        if (mThreadConnectedBluetooth != null) ;
+                        mThreadConnectedBluetooth.write("s");
+                        break;
+                    }
+                    case MotionEvent.ACTION_MOVE: {
+                        break;
+                    }
+
+                    case MotionEvent.ACTION_UP: {
+                        mThreadConnectedBluetooth.write("2");
+                        break;
+                    }
+                }
+                return false;
+            }
+        });
+        btnL.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        if (mThreadConnectedBluetooth != null) ;
+                        mThreadConnectedBluetooth.write("a");
+                        break;
+                    }
+                    case MotionEvent.ACTION_MOVE: {
+                        break;
+                    }
+
+                    case MotionEvent.ACTION_UP: {
+                        mThreadConnectedBluetooth.write("2");
+                        break;
+                    }
+                }
+                return false;
             }
         });
 
-        btnL.setOnClickListener(new View.OnClickListener() {
+        btnR.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                if (mThreadConnectedBluetooth != null) ;
-                mThreadConnectedBluetooth.write("a");
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        if (mThreadConnectedBluetooth != null) ;
+                        mThreadConnectedBluetooth.write("d");
+                        break;
+                    }
+                    case MotionEvent.ACTION_MOVE: {
+                        break;
+                    }
+
+                    case MotionEvent.ACTION_UP: {
+                        mThreadConnectedBluetooth.write("2");
+                        break;
+                    }
+                }
+                return false;
             }
         });
 
-        btnR.setOnClickListener(new View.OnClickListener() {
+
+        btn5.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                if (mThreadConnectedBluetooth != null) ;
-                mThreadConnectedBluetooth.write("d");
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        if (mThreadConnectedBluetooth != null) ;
+                        mThreadConnectedBluetooth.write("1");
+                        break;
+                    }
+                    case MotionEvent.ACTION_MOVE: {
+                        break;
+                    }
+
+                    case MotionEvent.ACTION_UP: {
+                        mThreadConnectedBluetooth.write("2");
+                        break;
+                    }
+                }
+                return false;
             }
         });
 
-        btn5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mThreadConnectedBluetooth != null) ;
-                mThreadConnectedBluetooth.write("e");
-            }
-        });
+
+
 
         btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bluetoothOn();
+            }
+        });
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bluetoothOff();
+            }
+        });
+        btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listPairedDevices();
             }
         });
+
 
 
         mBluetoothHandler = new Handler() {
@@ -238,6 +326,7 @@ public class CCTV extends AppCompatActivity {
 
         }
     }
+
 
     void bluetoothOff() {
         mBluetoothAdapter.disable();

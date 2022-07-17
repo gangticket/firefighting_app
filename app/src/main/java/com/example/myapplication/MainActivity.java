@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton mBtnBluetoothOff;
     Button mBtnConnect;
     Button mBtncctv;
-//    Button mbtn;
+    Button mbtn;
     BluetoothAdapter mBluetoothAdapter;
     Set<BluetoothDevice> mPairedDevices;
     List<String> mListPairedDevices;
@@ -85,14 +85,6 @@ public class MainActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH}, 1);
 
-
-//        mbtn.setOnClickListener(new Button.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-//                startActivity(intent);
-//            }
-//        });
 
         mBtnBluetoothOn.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -134,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                     mTvgas_set.setText(array[1].concat("ppm"));
                     double num = Double.parseDouble(array[0]);
                     double num2 = Double.parseDouble(array[1]);
-                    if (num + num2 >= 45) {
+                    if (num >=40 || num2 >= 20) {
                         Intent intent = new Intent(MainActivity.this, MainActivity2.class);
                         intent.putExtra("temp", array[0]);
                         intent.putExtra("gas", array[1]);

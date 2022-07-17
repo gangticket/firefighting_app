@@ -53,8 +53,8 @@ public class MainActivity2 extends AppCompatActivity {
         Intent intent = getIntent();
         String temp = intent.getExtras().getString("temp");
         String gas = intent.getExtras().getString("gas");
-        mTvtemp_set.setText(temp);
-        mTvgas_set.setText(gas);
+        mTvtemp_set.setText(temp.concat("˚C"));
+        mTvgas_set.setText(gas.concat("ppm"));
 
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
