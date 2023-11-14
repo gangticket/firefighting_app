@@ -5,5 +5,5 @@
 ![025](https://github.com/gangticket/firefighting_app/assets/104062840/48337979-5b68-4e0e-9ac6-eb53fad82161)
 ![026](https://github.com/gangticket/firefighting_app/assets/104062840/74e6eb05-e9d2-42ab-a3f5-eb6c9aad8b3e)
 
-
+#동영상은 아래 PDF 파일에서 확인 가능합니다!
 [소방로봇.pdf](https://github.com/gangticket/firefighting_app/files/13345550/default.pdf)
